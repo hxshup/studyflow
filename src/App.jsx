@@ -261,6 +261,7 @@ export default function App() {
               session?.user?.email?.split("@")[0] ||
               "Student"
             }
+            session={session}
           />
           <main className="flex-1 px-4 pb-24 sm:px-6 md:pb-10 lg:px-8">
             {content}

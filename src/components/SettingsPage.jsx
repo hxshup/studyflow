@@ -160,6 +160,15 @@ export default function SettingsPage({ session }) {
           >
             {savingProfile ? "Saving..." : "Save profile"}
           </button>
+          <button
+            type="button"
+            onClick={async () => {
+              await supabase.auth.signOut();
+            }}
+            className="mt-3 w-full rounded-xl border border-red-200 bg-red-50 px-4 py-3 font-semibold text-red-600 transition hover:bg-red-100"
+          >
+            Log out
+          </button>
 
           {profileMessage && (
             <p className="text-sm text-slate-500">{profileMessage}</p>

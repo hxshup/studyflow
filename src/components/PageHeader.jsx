@@ -52,6 +52,7 @@ export default function PageHeader({
   showAddTask,
   onAddTask,
   firstName,
+  session,
 }) {
   const item = copy[page] ?? copy.dashboard;
   const greeting = getGreeting();
@@ -62,11 +63,20 @@ export default function PageHeader({
     <header className="sticky top-0 z-20 border-b border-slate-200/80 bg-slate-100/90 backdrop-blur">
       <div className="flex items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex min-w-0 items-center gap-3">
-          <div className="md:hidden">
-            <LogoMark className="h-8 w-8" />
+          <div className="md:hidden flex min-w-0 items-center gap-2">
+            <LogoMark className="h-8 w-8 shrink-0" />
+
+            <div className="min-w-0 leading-tight">
+              <p className="text-sm font-bold tracking-tight text-slate-900">
+                StudyFlow
+              </p>
+              <p className="truncate text-[10px] text-slate-500">
+                {session?.user?.email || "Your study workspace"}
+              </p>
+            </div>
           </div>
 
-          <div className="min-w-0">
+          <div className="hidden md:block min-w-0">
             <p className="text-xs font-medium uppercase tracking-[0.14em] text-indigo-600">
               {item.kicker}
             </p>
